@@ -64,19 +64,23 @@ return (
     <>
     <Header/>
     <Style>
-      {products.map((el)=>{return(
-         <Box key={el.id} > 
-         <img  src = {el.image} />
-          <p>{el.name}</p> 
-          <div className="buttonsQuantity">
-            <button onClick={() => countLess(el.id)}>-</button>
-              {el.qtt}
-              <button onClick={() => countPlus(el.id)}>+</button>
-            </div>
-            <img onClick={()=>deleteProduct(el.id)} class="delete" src = {deleteIcon}/>
-         </Box>
-         )
-         } ) }
+      {(products.length> 0) ?
+      products.map((el)=>{return(
+        <Box key={el.id} > 
+        <img  src = {el.image} />
+         <p>{el.name}</p> 
+         <div className="buttonsQuantity">
+           <button onClick={() => countLess(el.id)}>-</button>
+             {el.qtt}
+             <button onClick={() => countPlus(el.id)}>+</button>
+           </div>
+           <img onClick={()=>deleteProduct(el.id)} class="delete" src = {deleteIcon}/>
+        </Box>
+        )
+        } ) 
+      
+      : <Header/> }
+  
  
     </Style>
      </>
